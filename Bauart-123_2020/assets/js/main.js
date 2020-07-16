@@ -100,7 +100,7 @@
 					settings.keyboardShortcuts.enabled = false;
 					settings.scrollWheel.enabled = false;
 					settings.scrollZones.enabled = false;
-					settings.dragging.enabled = false;
+					//settings.dragging.enabled = false;
 
 				// Re-enable overflow on body.
 					$body.css('overflow-x', 'auto');
@@ -673,9 +673,9 @@
 					}, 600);
 
 			})
-			.on('click', '.modal', function(event) {
+			.on('click', '.exit', function(event) {
 
-				var $modal = $(this),
+				var $modal = $('.modal'),
 					$modalImg = $modal.find('img');
 
 				// Locked? Bail.
@@ -721,6 +721,33 @@
 					}, 125);
 
 			})
+
+			.on('click', '#nextimg', function(event) {
+
+				var $modal = $('.modal'),
+					$modalImg = $modal.find('img');
+
+
+
+						// Pause scroll zone.
+							$wrapper.triggerHandler('---pauseScrollZone');
+
+						setTimeout(function() {
+
+							// Clear src.
+								$modalImg.attr('src', '');
+
+							// Unlock.
+								$modal[0]._locked = false;
+
+							// Focus.
+								$body.focus();
+
+						}, 475);
+
+
+			})
+
 			.on('keypress', '.modal', function(event) {
 
 				var $modal = $(this);
@@ -736,7 +763,7 @@
 					event.stopPropagation();
 
 			})
-			.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>')
+			.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div><div class="exit"></div><ul class="actions"><li><div id="nextimg" class="button secondary color1 circle icon solid fa-angle-right" style="right: 2em; position: fixed;">Next</div></li><li><div id="previmg" class="button secondary color1 circle icon solid fa-angle-left" style="left: 2em; position: fixed;">Previous</div></li></ul></div>') //<div class="previmg"></div><div class="nextimg"></div>
 				.find('img')
 					.on('load', function(event) {
 
@@ -755,5 +782,7 @@
 						}, 275);
 
 					});
+
+
 
 })(jQuery);

@@ -301,6 +301,50 @@ input, select, textarea {
 
 
 /*-Randy-*/
+
+/* Style the header: fixed position (always stay at the top) */
+	.header {
+		 position: fixed;
+		 top: 0;
+		 z-index: 1;
+		 width: 100%;
+		 background-color: #f1f1f1;
+	}
+
+	/* The progress container (grey background) */
+	.progress-container {
+		 width: 100%;
+		 height: 6px;
+		 background: #ccc;
+	}
+
+	/* The progress bar (scroll indicator) */
+	.progress-bar {
+		 height: 6px;
+		 background: #FF883E;
+		 width: 0%;
+	}
+
+	.nextimg {
+		height: 100%;
+		width: 50%;
+		position: fixed;
+		right: 0;
+		cursor: pointer;
+	}
+
+	.previmg {
+		height: 100%;
+		width: 50%;
+		position: fixed;
+		left: 0;
+		cursor: crosshair;
+	}
+
+	.map {
+		overflow-y: hidden !important;
+	}
+
 	.logo {
 	height: 180px;
 	width: 150px;
@@ -358,7 +402,7 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		color: #FF883E;
 		font-family: "daxbold";
-		font-weight: 700;
+		font-weight: 500;
 		line-height: 1.3;
 		margin: 0 0 0.75rem 0;
 		letter-spacing: -0.05em;
@@ -1967,7 +2011,22 @@ input, select, textarea {
 				opacity: 0;
 			}
 
-			.gallery .modal:after {
+			/* .gallery .modal:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0.5rem;
+				right: 0.5rem;
+				width: 4rem;
+				height: 4rem;
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='64px' height='64px' viewBox='0 0 64 64' zoomAndPan='disable'%3E%3Cstyle%3Eline %7Bstroke: rgba(255, 255, 255, 0.875)%3Bstroke-width: 1.5px%3B%7D%3C/style%3E%3Cline x1='20' y1='20' x2='44' y2='44' /%3E%3Cline x1='20' y1='44' x2='44' y2='20' /%3E%3C/svg%3E");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 3rem;
+				cursor: pointer;
+			} */
+
+			.exit {
 				content: '';
 				display: block;
 				position: absolute;
@@ -3646,7 +3705,7 @@ input, select, textarea {
 		transition-delay: 0.25s;
 		cursor: default;
 		position: relative;
-		height: 42rem;
+		height: 32rem;
 		box-shadow: 0 2rem 4rem 0.25rem rgba(46, 43, 55, 0.575);
 	}
 
